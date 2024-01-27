@@ -24,11 +24,10 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            pass
-
+    @staticmethod
     def index_range(page: int, page_size: int) -> tuple:
-        
+        """Return a tuple of start and end indices for a given page and page size
+        """
         if page <= 0 or page_size <= 0:
             raise ValueError("Page and page_size must be positive integers.")
 
