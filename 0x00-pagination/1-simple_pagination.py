@@ -26,7 +26,7 @@ class Server:
 
     @staticmethod
     def index_range(page: int, page_size: int) -> tuple:
-        """Return a tuple of start and end indices for a given page and page size
+        """Return a tuple of start and end indices for a given page & page size
         """
         if page <= 0 or page_size <= 0:
             raise ValueError("Page and page_size must be positive integers.")
@@ -39,8 +39,10 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """Get a specific page of the dataset
         """
-        assert isinstance(page, int) and page > 0, "Page must be an integer greater than 0"
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be an integer greater than 0"
+        assert isinstance(
+            page, int) and page > 0, "Page must be an integer greater than 0"
+        assert isinstance(
+            page_size, int) and page_size > 0, "Page size an integer > 0"
 
         total_pages = math.ceil(len(self.dataset()) / page_size)
 
