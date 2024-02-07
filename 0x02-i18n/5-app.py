@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ a script that starts a Basic Babel setup """
 
-from flask import request, Flask, render_template
+from flask import request, Flask, render_template, g
 from flask_babel import Babel
 from typing import Union
 
@@ -26,14 +26,14 @@ class Config(object):
 app.config.from_object('5-app.Config')
 
 
-@app.route('/')
-def home():
+@app.route('/', methods=['GET'], strict_slashes=False)
+def hello() -> str:
     ''' returns a simple page '''
     return render_template('5-index.html')
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     '''determine the best match for supported languages
        detect if the incoming request contains locale
     '''
