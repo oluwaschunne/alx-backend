@@ -31,7 +31,7 @@ def get_user(login_as: str) -> dict:
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """ Before request """
     user = get_user(request.args.get('login_as'))
     if user:
@@ -39,7 +39,7 @@ def before_request():
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """ Get locale from request """
     locale = request.args.get('locale')
     if locale and locale in app.config["LANGUAGES"]:
@@ -53,7 +53,7 @@ def get_locale():
 
 
 @app.route("/")
-def home():
+def welcome() -> str:
     """ / page """
     return render_template('6-index.html')
 
