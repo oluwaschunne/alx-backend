@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ a script that starts a Basic Babel setup """
 
-from flask import request, Flask, render_template, g
+from flask import request, Flask, render_template
 from flask_babel import Babel
 from typing import Union
 
